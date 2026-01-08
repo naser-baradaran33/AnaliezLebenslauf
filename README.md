@@ -24,7 +24,7 @@ Install the dependencies:
 npm install
 ```
 
-# Development
+ Development
 
 Start the development server with HMR:
 
