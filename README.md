@@ -51,7 +51,7 @@ To build and run using Docker:
 ```bash
 docker build -t my-app .
 
-# Run the container
+## Run the container
 docker run -p 3000:3000 my-app
 ```
 
@@ -74,8 +74,8 @@ Make sure to deploy the output of `npm run build`
 ├── package.json
 ├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
 ├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
+│   ├── client/    ## Static assets
+│   └── server/    ## Server-side code
 ```
 
  Styling
