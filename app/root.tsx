@@ -9,7 +9,9 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
-import { usePuterStore } from "../app/lib/puter";
+import {usePuterStore} from "./lib/puter";
+import {useEffect} from "react";
+
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -20,12 +22,16 @@ export const links: Route.LinksFunction = () => [
   },
   {
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
   },
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const { init } = usePuterStore();
+
+  useEffect(() => {
+    init()
+  }, [init]);
 
   return (
     <html lang="en">
@@ -36,18 +42,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {/* SDK باید قبل از init لود شود */}
-        <script
-          src="https://js.puter.com/v2/"
-          defer
-          onLoad={() => {
-            console.log("Puter SDK loaded");
-            init();
-          }}
-        ></script>
-
+        <script src="https://js.puter.com/v2/"></script>
         {children}
-
         <ScrollRestoration />
         <Scripts />
       </body>
